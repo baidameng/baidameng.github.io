@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无忧Socks5 怎么设置｜SOCKS5 与 HTTP 代理填写、工具接入与排错</title>
+<meta name="description" content="说明无忧Socks5 客户端的协议选择、代理地址与端口填写、账号鉴权方式，以及在指纹浏览器、采集工具中的接入步骤与常见无流量问题排查。">
+<link rel="canonical" href="https://baidameng.github.io/socks5.html">
+</head>
+<body>
+<p><a href="/">← 返回使用指引首页</a></p>
+<h1>无忧Socks5 怎么设置</h1>
+<p>Socks5 与电脑客户端最大的区别是：它不给你界面，只给你一串代理信息，剩下的要自己填进目标工具。填错一个字段就是“能连上但没流量”。</p>
+
+<h2>先确认拿到的是什么协议</h2>
+<ul>
+<li>SOCKS5：支持 TCP 与 UDP 转发，适合指纹浏览器、部分游戏与采集工具。</li>
+<li>HTTP/HTTPS：只支持 HTTP 类流量，浏览器插件、简单脚本够用。</li>
+<li>两种协议端口不同，不能拿 SOCKS5 的端口当 HTTP 填。</li>
+</ul>
+
+<h2>填写四个字段</h2>
+<ol>
+<li>代理地址：只填 IP 或域名，不要带 http:// 前缀。</li>
+<li>端口：与协议配套，常见 1080 / 8080，以客户端显示为准。</li>
+<li>用户名与密码：需要鉴权时填写，大小写敏感。</li>
+<li>解析方式：优先选“远程解析”，避免本地 DNS 泄露真实位置。</li>
+</ol>
+<p>字段说明与不同工具的接入方式见 <a href="https://www.wyouip.com/products/wuyou-socks5">无忧Socks5 代理设置</a>。</p>
+
+<h2>填完没流量的排查顺序</h2>
+<ol>
+<li>先在本机用 curl 带代理参数请求一次，确认代理本身可用。</li>
+<li>再回到目标工具里试，排除工具配置问题。</li>
+<li>检查是否把 SOCKS5 端口填到了 HTTP 协议栏。</li>
+<li>检查工具是否绕过了代理（部分工具只代理浏览器内核，不走系统代理）。</li>
+<li>最后看节点是否在维护，公告中心有线路状态。</li>
+</ol>
+
+<h2>验证是否真的生效</h2>
+<p>打开目标工具访问任意显示出口 IP 的页面，比对客户端显示的节点 IP。不一致说明流量没走代理；一致但打不开网页，多半是 DNS 或 UDP 被阻断。</p>
+<p>更多连接问题见 <a href="https://www.wyouip.com/faq">无忧IP常见问题</a>。</p>
+</body>
+</html>
