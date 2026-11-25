@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模拟器多窗口怎么配独立 IP｜窗口分配、进程代理与定时切换要点</title>
+<meta name="description" content="整理模拟器与虚拟机多窗口场景下的 IP 分配做法：窗口数与套餐匹配、进程代理勾选、每窗口绑定独立节点、定时换 IP 的时机与异常排查。">
+<link rel="canonical" href="https://baidameng.github.io/multi-instance.html">
+</head>
+<body>
+<p><a href="/">← 返回使用指引首页</a></p>
+<h1>模拟器多窗口怎么配独立 IP</h1>
+<p>多开环境的难点不在客户端，而在“一个窗口对应一个出口”的映射关系。雷电、MuMu、蓝叠、夜神的做法大同小异，下面按顺序拆开。</p>
+
+<h2>1. 先算窗口数，再选套餐</h2>
+<ul>
+<li>统计同时在线窗口数，不是安装实例数。</li>
+<li>套餐窗口数按“同时在线”计算，超出部分会被挤出。</li>
+<li>留 1–2 个窗口余量给调试。</li>
+</ul>
+<p>窗口与套餐的对应关系见 <a href="https://www.wyouip.com/products/wulv-baoji">无虑包机多开设置</a>。</p>
+
+<h2>2. 客户端装在宿主机</h2>
+<p>装在 Windows 宿主机上统一分配节点，模拟器内不要重复装代理，否则双层代理会拖延迟。用进程代理模式时，把模拟器进程逐个勾选，未勾选的应用仍走本机网络。</p>
+
+<h2>3. 每个窗口绑定独立节点</h2>
+<ol>
+<li>在客户端窗口列表里找到对应的模拟器实例。</li>
+<li>为该实例选择节点，不要沿用上一个窗口。</li>
+<li>账号与窗口固定对应，避免今天 A 窗口明天 B 窗口。</li>
+</ol>
+
+<h2>4. 换 IP 的时机</h2>
+<ul>
+<li>定时切换：设好间隔后，切换期间不要重启模拟器。</li>
+<li>手动切换：先关该窗口的业务进程，换节点后再打开。</li>
+<li>大面积掉线先看 <a href="https://www.wyouip.com/notices">公告中心</a> 的线路维护，不要先改配置。</li>
+</ul>
+
+<h2>5. 常见异常</h2>
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>现象</th><th>优先检查</th></tr>
+<tr><td>窗口内能上网但出口 IP 未变</td><td>进程是否勾选、客户端是否以管理员运行</td></tr>
+<tr><td>部分窗口无法联网</td><td>该窗口是否分到已下架的节点</td></tr>
+<tr><td>延迟突然升高</td><td>节点地区是否在维护、宿主带宽是否跑满</td></tr>
+<tr><td>登录后很快掉线</td><td>是否多窗口共用同一节点</td></tr>
+</table>
+<p>完整排查顺序见 <a href="https://www.wyouip.com/faq">无忧IP常见问题</a> 与 <a href="https://www.wyouip.com/tutorials">使用教程</a>。</p>
+</body>
+</html>
