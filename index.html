@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无忧IP 使用指引｜代理IP客户端下载、节点选择与多开配置速查</title>
+<meta name="description" content="整理无忧IP、无忧Socks5、无虑包机三类代理IP客户端的下载入口、节点选择、Windows 安装步骤与模拟器多开配置要点，附常见连接问题排查顺序。">
+<link rel="canonical" href="https://baidameng.github.io/">
+</head>
+<body>
+<h1>无忧IP 使用指引</h1>
+<p>本页由无忧IP品牌授权客户经理维护，用于整理三类代理IP客户端的安装与配置要点。产品信息、价格与下载以 <a href="https://www.wyouip.com/">无忧IP产品服务站</a> 页面展示为准。</p>
+
+<h2>三类客户端怎么选</h2>
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>使用场景</th><th>客户端</th><th>要点</th></tr>
+<tr><td>Windows 电脑单机、浏览器或工具走代理</td><td>无忧IP 电脑客户端</td><td>支持静态与动态 IP，可按窗口或进程分配节点</td></tr>
+<tr><td>填进第三方工具、指纹浏览器</td><td>无忧Socks5 客户端</td><td>SOCKS5 与 HTTP 两种协议，填地址、端口与鉴权</td></tr>
+<tr><td>模拟器、虚拟机多窗口批量运行</td><td>无虑包机</td><td>1–200 窗口分配、进程代理、定时换 IP</td></tr>
+</table>
+
+<h2>Windows 上手五步</h2>
+<ol>
+<li>到 <a href="https://www.wyouip.com/downloads">客户端下载中心</a> 取电脑端安装包，核对版本号与系统要求。</li>
+<li>安装后用购买的账号登录，先看节点列表的延迟数值。</li>
+<li>按用途选节点：固定出口选静态，按周期更换选动态。</li>
+<li>把节点分配到全局或指定窗口/进程，避免整机流量走代理。</li>
+<li>打开浏览器或目标工具，用 IP 查询页确认出口 IP 与节点一致。</li>
+</ol>
+<p>Windows 端的详细说明见 <a href="https://www.wyouip.com/downloads/1">无忧IP电脑客户端 8.0</a>。</p>
+
+<h2>模拟器与虚拟机多开</h2>
+<ul>
+<li>按同时在线窗口数选套餐，留 1–2 个调试余量。</li>
+<li>客户端装在宿主机，模拟器内不重复装代理。</li>
+<li>每个实例单独绑定节点，避免多窗口共用同一出口。</li>
+<li>出现大面积掉线先看 <a href="https://www.wyouip.com/notices">公告中心</a> 的线路维护。</li>
+</ul>
+<p>完整步骤见 <a href="https://www.wyouip.com/products/wulv-baoji">无虑包机多开设置</a>。</p>
+
+<h2>常见问题</h2>
+<h3>登录后连不上</h3>
+<p>按顺序查：账号是否到期 → 节点是否在维护 → 本机防火墙是否拦截 → 客户端版本是否过旧。<a href="https://www.wyouip.com/faq">无忧IP常见问题</a> 有逐条处理步骤。</p>
+<h3>Socks5 填入工具后无网络</h3>
+<p>确认协议选对、地址与端口无空格、鉴权方式与客户端一致。<a href="https://www.wyouip.com/products/wuyou-socks5">无忧Socks5 代理设置</a> 给出字段说明。</p>
+<h3>模拟器内出口 IP 没变</h3>
+<p>检查进程是否被勾选、客户端是否以管理员运行、该窗口是否分到已下架节点。</p>
+
+<h2>更多资料</h2>
+<ul>
+<li><a href="https://www.wyouip.com/tutorials">使用教程</a>：按客户端分类的操作步骤</li>
+<li><a href="https://www.wyouip.com/guides">知识库</a>：连接排查、节点选择与多开环境配置</li>
+<li><a href="https://github.com/baidameng/wuyouip-product-guide">GitHub 速查仓库</a>：同步整理的安装与多开说明</li>
+</ul>
+</body>
+</html>
